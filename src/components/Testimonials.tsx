@@ -41,7 +41,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-12 md:py-20 bg-white relative">
+    <section id="trabalhos" className="py-12 md:py-20 bg-white relative">
       {/* Divisor animado */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent"></div>
       
@@ -62,7 +62,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <AnimatedSection key={index} delay={index * 100}>
               <div className="group glass-dark bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50">
-                <p className="text-gray-700 mb-4 leading-relaxed">
+                <p className="text-gray-800 mb-4 leading-relaxed font-medium">
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center">

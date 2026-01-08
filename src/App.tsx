@@ -14,10 +14,10 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    // Remove splash após animação
+    // Remove splash após animação (reduzido para melhor UX)
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 3000);
+    }, 1800);
 
     return () => clearTimeout(timer);
   }, []);
@@ -26,7 +26,7 @@ function App() {
     <div className="font-sans">
       {showSplash && <SplashScreen />}
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Services />

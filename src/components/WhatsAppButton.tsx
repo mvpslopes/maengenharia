@@ -14,10 +14,6 @@ export default function WhatsAppButton() {
       title="Falar no WhatsApp: +55 (35) 99859-9109"
     >
       <MessageCircle size={24} className="sm:w-7 sm:h-7 group-hover:scale-110 transition-transform" />
-      <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
-        <span className="absolute w-full h-full bg-red-500 rounded-full animate-ping opacity-75"></span>
-        <span className="relative">1</span>
-      </div>
     </a>
   );
 }

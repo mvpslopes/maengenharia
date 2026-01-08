@@ -1,14 +1,28 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useActiveSection } from '../hooks/useActiveSection';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const activeSection = useActiveSection();
   const whatsappNumber = '5535998599109';
   const whatsappMessage = 'Olá! Gostaria de solicitar um orçamento.';
 
+  const getNavLinkClass = (section: string) => {
+    const baseClass = "transition-colors font-medium underline-animated";
+    const isActive = activeSection === section;
+    return isActive
+      ? `${baseClass} text-brand-yellow`
+      : `${baseClass} text-gray-700 hover:text-gray-900`;
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <a href="#main-content" className="skip-link">
+        Pular para conteúdo principal
+      </a>
+      <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm backdrop-blur-sm bg-white/95">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <a href="#home" className="flex items-center">
             <img 
@@ -19,19 +33,19 @@ export default function Header() {
           </a>
 
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="#home" className="text-gray-700 hover:text-gray-900 transition-colors font-medium underline-animated">
+            <a href="#home" className={getNavLinkClass('home')}>
               Início
             </a>
-            <a href="#quem-somos" className="text-gray-700 hover:text-gray-900 transition-colors font-medium underline-animated">
+            <a href="#quem-somos" className={getNavLinkClass('quem-somos')}>
               Quem Somos
             </a>
-            <a href="#servicos" className="text-gray-700 hover:text-gray-900 transition-colors font-medium underline-animated">
+            <a href="#servicos" className={getNavLinkClass('servicos')}>
               Serviços
             </a>
-            <a href="#trabalhos" className="text-gray-700 hover:text-gray-900 transition-colors font-medium underline-animated">
+            <a href="#trabalhos" className={getNavLinkClass('trabalhos')}>
               Trabalhos
             </a>
-            <a href="#contato" className="text-gray-700 hover:text-gray-900 transition-colors font-medium underline-animated">
+            <a href="#contato" className={getNavLinkClass('contato')}>
               Contato
             </a>
             <a
@@ -63,7 +77,7 @@ export default function Header() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-16 bg-white z-40 shadow-lg">
+          <div className="md:hidden fixed inset-0 top-16 bg-white z-40 shadow-lg animate-slideDown">
             <nav className="px-4 py-6 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
               <a
                 href="#home"
@@ -126,5 +140,6 @@ export default function Header() {
         )}
       </div>
     </header>
+    </>
   );
 }

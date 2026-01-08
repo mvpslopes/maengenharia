@@ -5,13 +5,13 @@ export default function SplashScreen() {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    // Simula o carregamento e remove a splash após 2.5 segundos
+    // Simula o carregamento e remove a splash após 1.5 segundos (reduzido para melhor UX)
     const timer = setTimeout(() => {
       setIsAnimating(true);
       setTimeout(() => {
         setIsVisible(false);
-      }, 500); // Tempo da animação de fade out
-    }, 2500);
+      }, 300); // Tempo da animação de fade out
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -43,7 +43,7 @@ export default function SplashScreen() {
           <div
             className="h-full bg-brand-yellow loading-bar"
             style={{
-              animation: 'loading 2.5s ease-in-out forwards'
+              animation: 'loading 1.5s ease-in-out forwards'
             }}
           ></div>
         </div>

@@ -25,6 +25,7 @@ export default function Hero() {
             backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
             transform: `translateY(${scrollY * 0.5}px)`
           }}
+          loading="lazy"
         ></div>
       </div>
 
@@ -50,7 +51,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-4 md:mb-6 max-w-2xl opacity-0 animate-fadeInUp" style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed mb-4 md:mb-6 max-w-2xl opacity-0 animate-fadeInUp text-contrast" style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}>
             Projetamos e construímos espaços que combinam inovação com artesanato. Cada projeto é executado com precisão, criatividade e um profundo compromisso com a qualidade. Sua estrutura dos sonhos começa com nossa expertise.
           </p>
 
