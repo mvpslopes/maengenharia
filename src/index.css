@@ -123,6 +123,13 @@
     width: 100%;
   }
 
+  /* Underline mais espesso para link ativo */
+  .underline-animated.text-brand-yellow::after {
+    width: 100%;
+    height: 3px;
+    background: #f5a900;
+  }
+
   /* Animação de slide down para menu mobile */
   @keyframes slideDown {
     from {

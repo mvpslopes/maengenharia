@@ -41,13 +41,13 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="trabalhos" className="py-12 md:py-20 bg-white relative">
+    <section id="trabalhos" className="py-16 md:py-24 lg:py-28 bg-white relative">
       {/* Divisor animado */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection delay={0}>
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center mb-10 md:mb-16">
             <div className="text-gray-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">
               [DEPOIMENTOS]
             </div>
@@ -58,10 +58,10 @@ export default function Testimonials() {
           </div>
         </AnimatedSection>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <AnimatedSection key={index} delay={index * 100}>
-              <div className="group glass-dark bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50">
+              <div className="group glass-dark bg-white/80 backdrop-blur-sm p-5 md:p-7 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50">
                 <p className="text-gray-800 mb-4 leading-relaxed font-medium">
                   "{testimonial.quote}"
                 </p>

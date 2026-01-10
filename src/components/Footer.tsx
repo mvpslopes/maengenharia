@@ -72,6 +72,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#projetos" className="text-gray-400 hover:text-brand-yellow transition-colors">
+                  Projetos
+                </a>
+              </li>
+              <li>
                 <a href="#trabalhos" className="text-gray-400 hover:text-brand-yellow transition-colors">
                   Trabalhos
                 </a>

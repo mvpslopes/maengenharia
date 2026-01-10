@@ -1,89 +1,176 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import { useState } from 'react';
 
 const services = [
   {
-    title: 'Construção Residencial',
-    image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80',
-    description: 'Projetos e execução de residências personalizadas com qualidade e atenção aos detalhes.'
+    title: 'PROJETO ESTRUTURAL',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    description: 'Desenvolvimento de projetos estruturais completos, utilizando softwares modernos e metodologias consolidadas. Nossos projetos estruturais garantem segurança, viabilidade e otimização de materiais, atendendo todas as normas técnicas vigentes.',
+    fullDescription: 'O Projeto Estrutural é a base de qualquer construção. Desenvolvemos projetos estruturais completos utilizando os mais modernos softwares de cálculo estrutural e metodologias consolidadas no mercado. Nossos projetos garantem segurança, viabilidade técnica e otimização de materiais, sempre em conformidade com as normas técnicas brasileiras (NBR). Trabalhamos com estruturas em concreto armado, estruturas metálicas, alvenaria estrutural e outros sistemas construtivos modernos.'
   },
   {
-    title: 'Construção Comercial',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    description: 'Edifícios comerciais modernos e funcionais para empresas de todos os portes.'
+    title: 'PROJETO COMPLEMENTARES HIDROSSANITÁRIO E ELÉTRICO',
+    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
+    description: 'Projetos complementares de instalações hidrossanitárias e elétricas, integrados ao projeto estrutural. Soluções completas que garantem funcionalidade, eficiência energética e conformidade com as normas técnicas.',
+    fullDescription: 'Os Projetos Complementares Hidrossanitário e Elétrico são essenciais para o funcionamento completo de qualquer edificação. Desenvolvemos projetos integrados que trabalham em harmonia com o projeto estrutural, garantindo funcionalidade, eficiência energética e total conformidade com as normas técnicas brasileiras. Nossos projetos incluem dimensionamento de instalações, especificação de materiais, detalhamento de execução e compatibilização com demais projetos da obra.'
   },
   {
-    title: 'Reforma & Remodelação',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2058&q=80',
-    description: 'Transformação de espaços existentes com design contemporâneo e funcionalidade.'
+    title: 'EXECUÇÃO DE OBRAS',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80',
+    description: 'Execução completa de obras com acompanhamento técnico especializado, garantindo qualidade, cumprimento de prazos e conformidade com os projetos aprovados. Equipe qualificada e processos modernos de gestão.',
+    fullDescription: 'A Execução de Obras é realizada com acompanhamento técnico especializado em todas as etapas. Garantimos qualidade, cumprimento rigoroso de prazos e total conformidade com os projetos aprovados. Nossa equipe é altamente qualificada e utilizamos processos modernos de gestão de obras, com controle de qualidade, planejamento detalhado e comunicação constante com o cliente. Trabalhamos com os melhores fornecedores e mão de obra especializada.'
   }
 ];
 
 export default function Services() {
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+
+  const openModal = (index: number) => {
+    setSelectedService(index);
+    document.body.style.overflow = 'hidden'; // Previne scroll do body
+  };
+
+  const closeModal = () => {
+    setSelectedService(null);
+    document.body.style.overflow = 'unset';
+  };
+
   return (
-    <section id="servicos" className="py-12 md:py-20 bg-white relative">
-      {/* Divisor animado */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection delay={0}>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 md:mb-12 gap-4">
-            <div className="flex-1">
+    <>
+      <section id="servicos" className="py-16 md:py-24 lg:py-28 bg-white relative">
+        {/* Divisor animado */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection delay={0}>
+            <div className="text-center mb-12 md:mb-16">
               <div className="text-gray-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">
                 [NOSSOS SERVIÇOS]
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                De Ideias à{' '}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
+                Serviços que Abrangem Todo o{' '}
                 <span className="text-brand-yellow relative">
-                  Realidade Concreta
+                  Escopo da Engenharia Estrutural
                   <span className="absolute bottom-0 left-0 w-full h-1 bg-brand-yellow/20 -z-10"></span>
                 </span>
               </h2>
+              <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+                Soluções completas em engenharia estrutural, desde projetos até execução, com qualidade e comprometimento.
+              </p>
             </div>
+          </AnimatedSection>
+
+          {/* Grid de cards verticais similar à imagem */}
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+            {services.map((service, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <div
+                  onClick={() => openModal(index)}
+                  className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 h-[500px] md:h-[600px]"
+                >
+                  {/* Imagem de fundo */}
+                  <div className="absolute inset-0">
+                    <div
+                      className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                      style={{
+                        backgroundImage: `url('${service.image}')`
+                      }}
+                    ></div>
+                    {/* Gradiente amarelo apenas na metade inferior */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-brand-yellow/90 via-brand-yellow/60 to-transparent"></div>
+                    {/* Overlay escuro sutil na parte inferior */}
+                    <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-gray-900/70 via-gray-900/30 to-transparent"></div>
+                  </div>
+
+                  {/* Conteúdo do card */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-yellow transition-colors leading-tight">
+                      {service.title}
+                    </h3>
+                    <p className="text-white/90 text-sm sm:text-base mb-4 line-clamp-3">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center text-white font-semibold text-sm group-hover:gap-2 transition-all">
+                      <span>Saiba Mais</span>
+                      <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={18} />
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
             <a
               href="#contato"
-              className="group hidden md:flex items-center px-6 py-3 bg-brand-yellow text-gray-900 font-semibold rounded-lg hover:bg-brand-yellow-hover transition-all ripple"
+              className="inline-flex items-center px-8 py-4 bg-brand-yellow text-gray-900 font-semibold rounded-xl hover:bg-brand-yellow-hover transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Ver Mais
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              Solicitar Orçamento
+              <ArrowRight className="ml-2" size={20} />
             </a>
           </div>
-        </AnimatedSection>
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <AnimatedSection key={index} delay={index * 100}>
-              <div
-                className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2"
-              >
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                  <div
-                    className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{
-                      backgroundImage: `url('${service.image}')`
-                    }}
-                  ></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent group-hover:from-gray-900/95 transition-colors"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 group-hover:text-brand-yellow transition-colors">{service.title}</h3>
-                  <p className="text-gray-200 text-xs sm:text-sm">{service.description}</p>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
         </div>
+      </section>
 
-        <div className="md:hidden mt-8 text-center">
-          <a
-            href="#contato"
-            className="inline-flex items-center px-6 py-3 bg-brand-yellow text-gray-900 font-semibold rounded-lg hover:bg-brand-yellow-hover transition-all"
+      {/* Modal de detalhes do serviço */}
+      {selectedService !== null && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <div 
+            className="relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all"
+            onClick={(e) => e.stopPropagation()}
           >
-            Ver Mais
-            <ArrowRight className="ml-2" size={20} />
-          </a>
+            {/* Botão fechar */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+              aria-label="Fechar"
+            >
+              <X size={24} className="text-gray-700" />
+            </button>
+
+            {/* Imagem do serviço */}
+            <div className="relative h-64 md:h-80 overflow-hidden">
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{
+                  backgroundImage: `url('${services[selectedService].image}')`
+                }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <h3 className="text-2xl md:text-4xl font-bold text-white">
+                  {services[selectedService].title}
+                </h3>
+              </div>
+            </div>
+
+            {/* Conteúdo do modal */}
+            <div className="p-6 md:p-8 lg:p-12">
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">Descrição</h4>
+                <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                  {services[selectedService].fullDescription}
+                </p>
+              </div>
+
+              <div className="pt-6 border-t border-gray-200">
+                <a
+                  href="#contato"
+                  onClick={closeModal}
+                  className="inline-flex items-center px-6 py-3 bg-brand-yellow text-gray-900 font-semibold rounded-xl hover:bg-brand-yellow-hover transition-all shadow-lg hover:shadow-xl"
+                >
+                  Solicitar Orçamento para este Serviço
+                  <ArrowRight className="ml-2" size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      )}
+    </>
   );
 }

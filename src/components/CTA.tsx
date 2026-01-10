@@ -1,11 +1,12 @@
 import AnimatedSection from './AnimatedSection';
+import ContactForm from './ContactForm';
 
 export default function CTA() {
   const whatsappNumber = '5535998599109';
   const whatsappMessage = 'Olá! Gostaria de agendar uma consulta gratuita.';
 
   return (
-    <section id="contato" className="py-12 md:py-20 bg-brand-yellow relative overflow-hidden">
+    <section id="contato" className="py-16 md:py-24 lg:py-28 bg-brand-yellow relative overflow-hidden">
       {/* Gradiente dinâmico */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-yellow via-brand-yellow to-brand-yellow-hover opacity-90"></div>
       
@@ -24,7 +25,7 @@ export default function CTA() {
       <div className="absolute bottom-10 left-10 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
           <AnimatedSection delay={0}>
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
@@ -34,14 +35,14 @@ export default function CTA() {
                 Transforme suas ideias em realidade com nossa expertise em engenharia e construção. Oferecemos soluções personalizadas que combinam qualidade, inovação e comprometimento.
               </p>
               <div className="mb-4 md:mb-6">
-                <p className="text-sm sm:text-base text-white/90 mb-2">Ligue ou envie uma mensagem:</p>
+                <p className="text-sm sm:text-base text-white/90 mb-2 font-semibold">Ou entre em contato direto:</p>
                 <a
                   href={`https://wa.me/${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white hover:text-gray-100 transition-colors break-all relative group"
+                  className="text-lg sm:text-xl md:text-2xl font-bold text-white hover:text-gray-100 transition-colors break-all relative group inline-block"
                 >
-                  +55 (35) 99859-9109
+                  (35) 99859-9109
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
                 </a>
               </div>
@@ -51,9 +52,16 @@ export default function CTA() {
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl text-sm sm:text-base overflow-hidden ripple"
               >
-                <span className="relative z-10">Agendar Consulta Grátis</span>
+                <span className="relative z-10">Falar no WhatsApp</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
               </a>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={200}>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 lg:p-10 border border-white/20 shadow-xl">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Envie sua Mensagem</h3>
+              <ContactForm />
             </div>
           </AnimatedSection>
         </div>

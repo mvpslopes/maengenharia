@@ -9,7 +9,7 @@ export default function Header() {
   const whatsappMessage = 'Olá! Gostaria de solicitar um orçamento.';
 
   const getNavLinkClass = (section: string) => {
-    const baseClass = "transition-colors font-medium underline-animated";
+    const baseClass = "transition-colors font-medium underline-animated relative";
     const isActive = activeSection === section;
     return isActive
       ? `${baseClass} text-brand-yellow`
@@ -22,7 +22,7 @@ export default function Header() {
         Pular para conteúdo principal
       </a>
       <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm backdrop-blur-sm bg-white/95">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <a href="#home" className="flex items-center">
             <img 
@@ -32,15 +32,21 @@ export default function Header() {
             />
           </a>
 
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-8">
             <a href="#home" className={getNavLinkClass('home')}>
               Início
             </a>
             <a href="#quem-somos" className={getNavLinkClass('quem-somos')}>
               Quem Somos
             </a>
+            <a href="#equipe" className={getNavLinkClass('equipe')}>
+              Equipe
+            </a>
             <a href="#servicos" className={getNavLinkClass('servicos')}>
               Serviços
+            </a>
+            <a href="#projetos" className={getNavLinkClass('projetos')}>
+              Projetos
             </a>
             <a href="#trabalhos" className={getNavLinkClass('trabalhos')}>
               Trabalhos
@@ -49,18 +55,10 @@ export default function Header() {
               Contato
             </a>
             <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-gray-700 hover:text-brand-yellow transition-colors text-sm font-medium"
-            >
-              <span>+55 (35) 99859-9109</span>
-            </a>
-            <a
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative px-6 py-2 bg-brand-yellow text-gray-900 font-semibold rounded-lg hover:bg-brand-yellow-hover transition-all overflow-hidden ripple"
+              className="group relative px-6 py-3 bg-brand-yellow text-gray-900 font-semibold rounded-xl hover:bg-brand-yellow-hover transition-all overflow-hidden ripple shadow-lg hover:shadow-xl"
             >
               <span className="relative z-10">Solicitar Orçamento</span>
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
@@ -94,11 +92,25 @@ export default function Header() {
                 Quem Somos
               </a>
               <a
+                href="#equipe"
+                className="block py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors font-medium rounded-lg px-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Equipe
+              </a>
+              <a
                 href="#servicos"
                 className="block py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors font-medium rounded-lg px-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Serviços
+              </a>
+              <a
+                href="#projetos"
+                className="block py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors font-medium rounded-lg px-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Projetos
               </a>
               <a
                 href="#trabalhos"
@@ -116,20 +128,10 @@ export default function Header() {
               </a>
               <div className="pt-4 border-t border-gray-200 space-y-3">
                 <a
-                  href={`https://wa.me/${whatsappNumber}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center py-3 text-gray-700 hover:text-brand-yellow transition-colors font-medium rounded-lg px-4"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="mr-2">📞</span>
-                  <span>+55 (35) 99859-9109</span>
-                </a>
-                <a
                   href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block px-6 py-3 bg-brand-yellow text-gray-900 font-semibold rounded-lg hover:bg-brand-yellow-hover transition-colors text-center"
+                  className="block px-6 py-4 bg-brand-yellow text-gray-900 font-semibold rounded-xl hover:bg-brand-yellow-hover transition-all text-center shadow-lg hover:shadow-xl transform hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Solicitar Orçamento

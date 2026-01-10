@@ -29,13 +29,13 @@ export default function Blog() {
   const regularPosts = blogPosts.filter(post => !post.featured);
 
   return (
-    <section className="py-12 md:py-20 bg-white relative">
+    <section className="py-16 md:py-24 lg:py-28 bg-white relative">
       {/* Divisor animado */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection delay={0}>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 md:mb-12 gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 md:mb-16 gap-4">
             <div>
               <div className="text-gray-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">
                 [BLOG]
@@ -54,11 +54,11 @@ export default function Blog() {
           </div>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {/* Featured Post */}
           {featuredPost && (
             <AnimatedSection delay={200} className="md:col-span-2">
-              <div className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-1">
+              <div className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-1">
                 <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
                   <div
                     className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -81,7 +81,7 @@ export default function Blog() {
           <div className="space-y-4 md:space-y-6">
             {regularPosts.map((post, index) => (
               <AnimatedSection key={index} delay={300 + index * 100}>
-                <div className="flex gap-3 md:gap-4 group cursor-pointer hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden bg-white border border-gray-100 p-2 transform hover:-translate-y-1">
+                <div className="flex gap-3 md:gap-4 group cursor-pointer hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden bg-white border border-gray-100 p-3 transform hover:-translate-y-1 shadow-md">
                   <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex-shrink-0 overflow-hidden rounded-lg">
                     <div
                       className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
