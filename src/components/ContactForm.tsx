@@ -46,33 +46,48 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Simulação de envio - aqui você integraria com seu backend/API
     try {
-      // TODO: Integrar com API de envio de e-mail ou backend
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simula delay
-      
-      // Exemplo de integração (descomente quando tiver backend):
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
-      
-      setSubmitStatus('success');
-      
-      // Limpa o formulário após sucesso
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          projectType: '',
-          message: '',
-          acceptPrivacy: false
-        });
-        setSubmitStatus('idle');
-      }, 3000);
+      // URL da API PHP na Hostinger
+      // IMPORTANTE: Após fazer upload do arquivo PHP, atualize esta URL
+      const API_URL = import.meta.env.VITE_API_URL || 'https://maengenhariaintegrada.com.br/api/send-email.php';
+
+      // Envia os dados para o endpoint PHP
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          projectType: formData.projectType,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        
+        // Limpa o formulário após sucesso
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            projectType: '',
+            message: '',
+            acceptPrivacy: false
+          });
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        throw new Error(result.message || 'Erro ao enviar mensagem');
+      }
     } catch (error) {
+      console.error('Erro ao enviar email:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

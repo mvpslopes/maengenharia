@@ -1,9 +1,9 @@
 import { ArrowRight, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 // Array de imagens do carousel - adicione mais imagens aqui conforme necessário
 const heroImages = [
-  '/hero.jpg',
+  '/hero-1.jpg',
   '/hero-2.jpg',
   '/hero-3.jpg',
 ];
@@ -21,6 +21,33 @@ export default function Hero() {
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const progressRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Funções de navegação com useCallback para estabilidade
+  const goToNext = useCallback(() => {
+    setCurrentImageIndex((prev) => {
+      const next = prev === heroImages.length - 1 ? 0 : prev + 1;
+      setProgress(0);
+      return next;
+    });
+  }, []);
+
+  const goToPrevious = useCallback(() => {
+    setCurrentImageIndex((prev) => {
+      const prevIndex = prev === 0 ? heroImages.length - 1 : prev - 1;
+      setProgress(0);
+      return prevIndex;
+    });
+  }, []);
+
+  const goToSlide = useCallback((index: number) => {
+    setCurrentImageIndex(index);
+    setProgress(0);
+  }, []);
+
+  const togglePlayPause = useCallback(() => {
+    setIsPlaying((prev) => !prev);
+    setProgress(0);
+  }, []);
 
   // Preload das imagens
   useEffect(() => {
@@ -70,28 +97,7 @@ export default function Hero() {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [currentImageIndex, isPlaying]);
-
-  // Funções de navegação
-  const goToNext = () => {
-    setCurrentImageIndex((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1));
-    setProgress(0);
-  };
-
-  const goToPrevious = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1));
-    setProgress(0);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentImageIndex(index);
-    setProgress(0);
-  };
-
-  const togglePlayPause = () => {
-    setIsPlaying((prev) => !prev);
-    setProgress(0);
-  };
+  }, [goToNext, goToPrevious, togglePlayPause]);
 
   // Transição automática das imagens com barra de progresso
   useEffect(() => {
@@ -123,7 +129,7 @@ export default function Hero() {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (progressRef.current) clearInterval(progressRef.current);
     };
-  }, [isPlaying, isHovered, currentImageIndex, imagesLoaded]);
+  }, [isPlaying, isHovered, imagesLoaded, goToNext]);
 
   return (
     <section 
@@ -167,18 +173,28 @@ export default function Hero() {
       {heroImages.length > 1 && imagesLoaded && (
         <>
           <button
-            onClick={goToPrevious}
-            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all transform hover:scale-110 group"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              goToPrevious();
+            }}
+            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-40 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all transform hover:scale-110 group cursor-pointer"
             aria-label="Slide anterior"
+            type="button"
           >
-            <ChevronLeft className="text-white w-5 h-5 md:w-6 md:h-6 group-hover:text-brand-yellow transition-colors" />
+            <ChevronLeft className="text-white w-5 h-5 md:w-6 md:h-6 group-hover:text-brand-yellow transition-colors pointer-events-none" />
           </button>
           <button
-            onClick={goToNext}
-            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all transform hover:scale-110 group"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              goToNext();
+            }}
+            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-40 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all transform hover:scale-110 group cursor-pointer"
             aria-label="Próximo slide"
+            type="button"
           >
-            <ChevronRight className="text-white w-5 h-5 md:w-6 md:h-6 group-hover:text-brand-yellow transition-colors" />
+            <ChevronRight className="text-white w-5 h-5 md:w-6 md:h-6 group-hover:text-brand-yellow transition-colors pointer-events-none" />
           </button>
         </>
       )}
@@ -237,14 +253,14 @@ export default function Hero() {
       <div className="relative z-20 max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 w-full py-16 md:py-24 lg:py-32">
         <div className="max-w-3xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-4 md:mb-6" style={{ textShadow: '1px 1px 4px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 0, 0, 0.3)' }}>
-            <span className="inline-block opacity-0 animate-fadeInUp" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
-              Engenharia{' '}
+            <span className="block opacity-0 animate-fadeInUp" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
+              Engenharia com
             </span>
-            <span className="inline-block opacity-0 animate-fadeInUp text-brand-yellow" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-              com Responsabilidade
+            <span className="block opacity-0 animate-fadeInUp text-brand-yellow" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+              Responsabilidade
             </span>
-            <span className="inline-block opacity-0 animate-fadeInUp" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
-              {' '}e Excelência
+            <span className="block opacity-0 animate-fadeInUp" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
+              e Excelência
             </span>
           </h1>
 
@@ -252,21 +268,7 @@ export default function Hero() {
             Projetamos e construímos espaços onde inovação e excelência técnica se encontram. Cada projeto é desenvolvido com precisão, criatividade e alto padrão de qualidade, refletindo nosso compromisso com resultados duradouros. O Seu projeto começa com a nossa expertise.
           </p>
 
-          <div className="mb-6 md:mb-8 opacity-0 animate-fadeInUp" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
-            <p className="text-sm sm:text-base md:text-lg text-white/90 mb-3 font-medium">Entre em contato:</p>
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-yellow hover:text-brand-yellow-hover transition-all transform hover:scale-105 relative group"
-              style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 169, 0, 0.3)' }}
-            >
-              (35) 99859-9109
-              <span className="absolute bottom-0 left-0 w-0 h-1 bg-brand-yellow group-hover:w-full transition-all duration-300"></span>
-            </a>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 opacity-0 animate-fadeInUp" style={{ animationDelay: '1.1s', animationFillMode: 'forwards' }}>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 opacity-0 animate-fadeInUp" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
             <a
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"

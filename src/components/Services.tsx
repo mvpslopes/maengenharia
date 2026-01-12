@@ -5,19 +5,19 @@ import { useState } from 'react';
 const services = [
   {
     title: 'PROJETO ESTRUTURAL',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    image: '/projeto-estrutural.jpg',
     description: 'Desenvolvimento de projetos estruturais completos, utilizando softwares modernos e metodologias consolidadas. Nossos projetos estruturais garantem segurança, viabilidade e otimização de materiais, atendendo todas as normas técnicas vigentes.',
     fullDescription: 'O Projeto Estrutural é a base de qualquer construção. Desenvolvemos projetos estruturais completos utilizando os mais modernos softwares de cálculo estrutural e metodologias consolidadas no mercado. Nossos projetos garantem segurança, viabilidade técnica e otimização de materiais, sempre em conformidade com as normas técnicas brasileiras (NBR). Trabalhamos com estruturas em concreto armado, estruturas metálicas, alvenaria estrutural e outros sistemas construtivos modernos.'
   },
   {
     title: 'PROJETO COMPLEMENTARES HIDROSSANITÁRIO E ELÉTRICO',
-    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80',
+    image: '/projeto-hidro-eletrico.jpg',
     description: 'Projetos complementares de instalações hidrossanitárias e elétricas, integrados ao projeto estrutural. Soluções completas que garantem funcionalidade, eficiência energética e conformidade com as normas técnicas.',
     fullDescription: 'Os Projetos Complementares Hidrossanitário e Elétrico são essenciais para o funcionamento completo de qualquer edificação. Desenvolvemos projetos integrados que trabalham em harmonia com o projeto estrutural, garantindo funcionalidade, eficiência energética e total conformidade com as normas técnicas brasileiras. Nossos projetos incluem dimensionamento de instalações, especificação de materiais, detalhamento de execução e compatibilização com demais projetos da obra.'
   },
   {
     title: 'EXECUÇÃO DE OBRAS',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80',
+    image: '/execucao-obras.jpg',
     description: 'Execução completa de obras com acompanhamento técnico especializado, garantindo qualidade, cumprimento de prazos e conformidade com os projetos aprovados. Equipe qualificada e processos modernos de gestão.',
     fullDescription: 'A Execução de Obras é realizada com acompanhamento técnico especializado em todas as etapas. Garantimos qualidade, cumprimento rigoroso de prazos e total conformidade com os projetos aprovados. Nossa equipe é altamente qualificada e utilizamos processos modernos de gestão de obras, com controle de qualidade, planejamento detalhado e comunicação constante com o cliente. Trabalhamos com os melhores fornecedores e mão de obra especializada.'
   }

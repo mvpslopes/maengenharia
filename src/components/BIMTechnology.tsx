@@ -12,7 +12,7 @@ export default function BIMTechnology() {
         <div 
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `url('/excelencia.jpg')`
           }}
         ></div>
       </div>
