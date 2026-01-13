@@ -20,6 +20,12 @@ const services = [
     image: '/execucao-obras.jpg',
     description: 'Execução completa de obras com acompanhamento técnico especializado, garantindo qualidade, cumprimento de prazos e conformidade com os projetos aprovados. Equipe qualificada e processos modernos de gestão.',
     fullDescription: 'A Execução de Obras é realizada com acompanhamento técnico especializado em todas as etapas. Garantimos qualidade, cumprimento rigoroso de prazos e total conformidade com os projetos aprovados. Nossa equipe é altamente qualificada e utilizamos processos modernos de gestão de obras, com controle de qualidade, planejamento detalhado e comunicação constante com o cliente. Trabalhamos com os melhores fornecedores e mão de obra especializada.'
+  },
+  {
+    title: 'GERENCIAMENTO DE OBRAS',
+    image: '/gerenciamento-obras.jpg',
+    description: 'Gestão completa e profissional de obras com planejamento estratégico, controle de custos, prazos e qualidade. Acompanhamento técnico especializado em todas as etapas do projeto.',
+    fullDescription: 'O Gerenciamento de Obras é essencial para o sucesso de qualquer empreendimento. Oferecemos gestão completa e profissional, com planejamento estratégico detalhado, controle rigoroso de custos, prazos e qualidade. Nossa equipe realiza acompanhamento técnico especializado em todas as etapas do projeto, desde o planejamento inicial até a entrega final. Utilizamos ferramentas modernas de gestão, relatórios periódicos, controle de materiais, coordenação de equipes e fornecedores, garantindo eficiência, transparência e resultados dentro do orçamento e prazo estabelecidos. Trabalhamos com metodologias consolidadas e tecnologia de ponta para otimizar processos e maximizar a qualidade da execução.'
   }
 ];
 
@@ -62,12 +68,12 @@ export default function Services() {
           </AnimatedSection>
 
           {/* Grid de cards verticais similar à imagem */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
             {services.map((service, index) => (
               <AnimatedSection key={index} delay={index * 100}>
                 <div
                   onClick={() => openModal(index)}
-                  className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 h-[500px] md:h-[600px]"
+                  className="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 h-[400px] md:h-[450px] lg:h-[480px]"
                 >
                   {/* Imagem de fundo */}
                   <div className="absolute inset-0">
@@ -84,16 +90,16 @@ export default function Services() {
                   </div>
 
                   {/* Conteúdo do card */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-yellow transition-colors leading-tight">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 lg:p-6">
+                    <h3 className="text-sm sm:text-base md:text-base lg:text-base font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors leading-tight min-h-[2.5rem] flex items-center">
                       {service.title}
                     </h3>
-                    <p className="text-white/90 text-sm sm:text-base mb-4 line-clamp-3">
+                    <p className="text-white/90 text-xs sm:text-xs md:text-xs mb-2 line-clamp-2">
                       {service.description}
                     </p>
-                    <div className="flex items-center text-white font-semibold text-sm group-hover:gap-2 transition-all">
+                    <div className="flex items-center text-white font-semibold text-xs group-hover:gap-2 transition-all">
                       <span>Saiba Mais</span>
-                      <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={18} />
+                      <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={14} />
                     </div>
                   </div>
                 </div>
@@ -152,7 +158,7 @@ export default function Services() {
             <div className="p-6 md:p-8 lg:p-12">
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Descrição</h4>
-                <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                <p className="text-gray-700 leading-relaxed text-base md:text-lg text-justify">
                   {services[selectedService].fullDescription}
                 </p>
               </div>

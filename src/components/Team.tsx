@@ -66,8 +66,7 @@ export default function Team() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Formação Acadêmica</h4>
                     <p className="text-gray-600 text-sm">
-                      {/* Adicione aqui a formação acadêmica do engenheiro */}
-                      Engenharia Civil - [Nome da Universidade]
+                      PUC Minas
                     </p>
                   </div>
                 </div>
@@ -79,7 +78,7 @@ export default function Team() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Especialização</h4>
                     <p className="text-gray-600 text-sm">
-                      Estruturas e Projetos Complementares de Edificações
+                      Pós-Graduação em Engenharia de Estruturas
                     </p>
                   </div>
                 </div>
@@ -91,8 +90,7 @@ export default function Team() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Experiência</h4>
                     <p className="text-gray-600 text-sm">
-                      {/* Adicione aqui anos de experiência ou projetos realizados */}
-                      Mais de 10 anos de experiência em engenharia estrutural
+                      Mais de 10 anos de experiência no ramo da Engenharia
                     </p>
                   </div>
                 </div>
@@ -104,7 +102,7 @@ export default function Team() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Áreas de Atuação</h4>
                     <p className="text-gray-600 text-sm">
-                      Projetos estruturais, cálculo estrutural, laudos técnicos e consultoria em engenharia
+                      Projetos de Engenharia, Gerenciamento e Coordenação de Obras
                     </p>
                   </div>
                 </div>

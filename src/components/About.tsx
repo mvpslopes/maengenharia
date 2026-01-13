@@ -9,34 +9,33 @@ export default function About() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-0 items-center">
-          {/* Image Section */}
-          <AnimatedSection delay={0} className="relative order-2 md:order-1">
+        <div className="grid md:grid-cols-2 gap-0 items-start">
+          {/* Coluna Esquerda - Apenas Imagem */}
+          <AnimatedSection delay={0} className="relative order-2 md:order-1 pt-6 sm:pt-8 md:pt-12 lg:pt-16">
             <div 
               className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-cover bg-center transform transition-transform duration-700 hover:scale-105"
               style={{
                 backgroundImage: `url('/quem-somos.jpg')`
               }}
             ></div>
-            <div className="absolute right-0 top-0 bottom-0 w-1 md:w-2 bg-brand-yellow shadow-lg shadow-brand-yellow/50"></div>
           </AnimatedSection>
 
-          {/* Content Section */}
+          {/* Coluna Direita - Título + Texto alinhados com a imagem */}
           <AnimatedSection delay={200} className="bg-gray-900 p-6 sm:p-8 md:p-12 lg:p-16 order-1 md:order-2">
             <div className="space-y-5 md:space-y-7">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 md:mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 <span className="text-brand-yellow">Quem Somos</span>
               </h2>
-
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+              
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 text-justify">
                 Fundada em 2021, a <strong className="text-white">M.A ENGENHARIA</strong> atua na área de engenharia estrutural, atendendo diversos segmentos e oferecendo soluções completas às necessidades de seus clientes. A empresa utiliza modernos processos de desenvolvimento de projetos, aliados a softwares atualizados e metodologias consolidadas, investindo continuamente na capacitação de seu corpo técnico.
               </p>
 
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 text-justify">
                 O sucesso de cada projeto é resultado de um trabalho pautado no <strong className="text-white">comprometimento, na competência técnica</strong> e na constante preocupação com a satisfação do cliente, que orienta todo o seu foco de atuação.
               </p>
 
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed text-justify">
                 A <strong className="text-white">M.A ENGENHARIA</strong> mantém o compromisso permanente com a melhoria dos seus processos de desenvolvimento de projetos, buscando sempre a atualização técnica, tecnológica e metodológica. Com esse objetivo, desde sua fundação passou a atuar com um escopo completo que abrange toda a engenharia estrutural, atendendo de forma integral às demandas dos clientes, tanto em edificações quanto em outros segmentos da engenharia.
               </p>
 

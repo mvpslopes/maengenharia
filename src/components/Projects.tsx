@@ -4,6 +4,18 @@ import AnimatedSection from './AnimatedSection';
 
 const projects = [
   {
+    title: 'Projeto Estrutural Completo',
+    category: 'Construção Residencial',
+    image: '/img-cliente-01.jpeg',
+    description: 'Projeto estrutural completo desenvolvido com tecnologia BIM e metodologias modernas.'
+  },
+  {
+    title: 'Execução de Obra de Alto Padrão',
+    category: 'Construção Comercial',
+    image: '/img-cliente-02.jpeg',
+    description: 'Execução de obra comercial com acompanhamento técnico especializado e gestão completa.'
+  },
+  {
     title: 'Residencial Moderna',
     category: 'Construção Residencial',
     image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80',
